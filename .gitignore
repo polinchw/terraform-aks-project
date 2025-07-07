@@ -1,0 +1,7 @@
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
+.terraform/modules/modules.json
+.terraform/providers/registry.terraform.io/hashicorp/azurerm/2.99.0/darwin_arm64/terraform-provider-azurerm_v2.99.0_x5
+.terraform/providers/registry.terraform.io/hashicorp/azurerm/4.34.0/darwin_arm64/LICENSE.txt
+.terraform/providers/registry.terraform.io/hashicorp/azurerm/4.34.0/darwin_arm64/terraform-provider-azurerm_v4.34.0_x5
