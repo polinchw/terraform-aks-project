@@ -8,15 +8,12 @@ This project provisions an Azure Kubernetes Service (AKS) cluster using Terrafor
 terraform-aks-project
 ├── modules
 │   └── aks
-│       ├── main.tf          # Defines the AKS cluster and resource group
 │       ├── variables.tf     # Input variables for the AKS module
 │       └── outputs.tf       # Outputs for the AKS module
 ├── environments
 │   ├── dev
-│   │   ├── main.tf          # Development environment setup
 │   │   └── terraform.tfvars  # Variable values for the development environment
 │   └── prod
-│       ├── main.tf          # Production environment setup
 │       └── terraform.tfvars  # Variable values for the production environment
 ├── main.tf                  # Entry point for the Terraform project
 ├── variables.tf             # Input variables for the root module
@@ -57,6 +54,12 @@ terraform-aks-project
 - Modify the `terraform.tfvars` files in the `environments/dev` and `environments/prod` directories to customize the resource configurations for each environment.
 - Use the `modules/aks` directory to adjust the AKS module settings as needed.
 
+## Azure Subscription
+
+Ensure that you have set the `ARM_SUBSCRIPTION_ID` environment variable to your Azure subscription ID. You can do this by adding the following line to your shell configuration file (e.g., `.bashrc`, `.zshrc`):
+```
+export TF_VAR_subscription_id=<your_subscription_id>
+```
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
