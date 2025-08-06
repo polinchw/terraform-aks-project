@@ -38,3 +38,8 @@ variable "subscription_id" {
   type        = string
   
 }
+  
+variable "user_pool_temp_name" {
+  description = "The temporary name used during node pool rotation."
+  type        = string
+}

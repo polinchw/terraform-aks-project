@@ -33,3 +33,8 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "user_pool_temp_name" {
+  description = "The temporary name used during node pool rotation."
+  type        = string
+}
