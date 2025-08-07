@@ -33,7 +33,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "user_pool" {
   kubernetes_cluster_id = azurerm_kubernetes_cluster.aks.id
   vm_size               = "Standard_DS2_v2"
   node_count            = 1
-  max_pods              = 110
+  max_pods              = var.max_pods
   os_type               = "Linux"
   mode                  = "User"
   node_taints           = ["special=true:NoSchedule"]

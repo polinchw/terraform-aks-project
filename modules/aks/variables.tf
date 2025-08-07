@@ -38,3 +38,8 @@ variable "user_pool_temp_name" {
   description = "The temporary name used during node pool rotation."
   type        = string
 }
+
+variable "max_pods" {
+  description = "The maximum number of pods per node."
+  type        = number
+}

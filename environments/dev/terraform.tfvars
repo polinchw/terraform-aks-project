@@ -10,3 +10,4 @@ tags               = {
 }
 # Add a variable for the temporary name used during node pool rotation
 user_pool_temp_name = "userpooltemp"
+max_pods          = 15
