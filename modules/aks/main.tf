@@ -27,3 +27,15 @@ resource "azurerm_kubernetes_cluster" "aks" {
 
   tags = var.tags
 }
+
+resource "azurerm_kubernetes_cluster_node_pool" "user_pool" {
+  name                  = "userpool"
+  kubernetes_cluster_id = azurerm_kubernetes_cluster.aks.id
+  vm_size               = "Standard_DS2_v2"
+  node_count            = 1
+  max_pods              = var.max_pods
+  os_type               = "Linux"
+  mode                  = "User"
+  node_taints           = ["special=true:NoSchedule"]
+  temporary_name_for_rotation = var.user_pool_temp_name
+}
