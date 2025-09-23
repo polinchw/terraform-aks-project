@@ -52,4 +52,5 @@ resource "azurerm_kubernetes_cluster_node_pool" "user_pool" {
   mode                  = "User"
   node_taints           = ["special=true:NoSchedule"]
   temporary_name_for_rotation = var.user_pool_temp_name
+  zones                 = ["1", "2", "3"]
 }
