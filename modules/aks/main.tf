@@ -28,6 +28,20 @@ resource "azurerm_kubernetes_cluster" "aks" {
   tags = var.tags
 }
 
+data "azurerm_role_definition" "disk_snapshot_contributor" {
+  name  = "Disk Snapshot Contributor"
+  scope = azurerm_resource_group.aks_rg.id
+}
+
+resource "azurerm_role_assignment" "aks_disk_snapshot_contributor" {
+  scope              = azurerm_resource_group.aks_rg.id
+  role_definition_id = data.azurerm_role_definition.disk_snapshot_contributor.id
+  principal_id       = azurerm_kubernetes_cluster.aks.identity[0].principal_id
+
+  # Ensures the cluster exists before we try to read its node RG
+  depends_on = [azurerm_kubernetes_cluster.aks]
+}
+
 resource "azurerm_kubernetes_cluster_node_pool" "user_pool" {
   name                  = "userpool"
   kubernetes_cluster_id = azurerm_kubernetes_cluster.aks.id
@@ -38,4 +52,5 @@ resource "azurerm_kubernetes_cluster_node_pool" "user_pool" {
   mode                  = "User"
   node_taints           = ["special=true:NoSchedule"]
   temporary_name_for_rotation = var.user_pool_temp_name
+  zones                 = ["1", "2", "3"]
 }
