@@ -46,8 +46,8 @@ resource "azurerm_role_assignment" "aks_disk_snapshot_contributor" {
 resource "azurerm_kubernetes_cluster_node_pool" "user_pool" {
   name                  = "userpool"
   kubernetes_cluster_id = azurerm_kubernetes_cluster.aks.id
-  vm_size               = "Standard_DS2_v2"
-  node_count            = 1
+  vm_size               = var.vm_size
+  node_count            = var.node_count
   max_pods              = var.max_pods
   os_type               = "Linux"
   mode                  = "User"
