@@ -1,9 +1,9 @@
 resource_group_name = "dev-aks-rg"
-location            = "eastus2"
+location            = "centralus"
 cluster_name       = "dev-aks-cluster"
 dns_prefix         = "devaks"
 node_count         = 1
-vm_size            = "Standard_DS2_v2"
+vm_size            = "Standard_L8s_v3"
 tags               = {
   Environment = "Development"
   Project     = "AKS Project"
