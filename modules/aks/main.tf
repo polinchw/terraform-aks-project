@@ -51,7 +51,6 @@ resource "azurerm_kubernetes_cluster_node_pool" "user_pool" {
   max_pods              = var.max_pods
   os_type               = "Linux"
   mode                  = "User"
-  node_taints           = ["special=true:NoSchedule"]
   temporary_name_for_rotation = var.user_pool_temp_name
   zones                 = ["1", "2", "3"]
 }
